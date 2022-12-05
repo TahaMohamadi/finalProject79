@@ -18,7 +18,7 @@
             <AppenderRef ref="File"/>
         </Root>
 
-        <Logger name="ir.TahaMohammadi" level="warn" additivity="false">
+        <Logger name="ir.mohammadi" level="warn" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="File"/>
         </Logger>
