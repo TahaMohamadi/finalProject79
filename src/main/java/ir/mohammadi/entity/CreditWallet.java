@@ -11,10 +11,8 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @Entity
-public class Service extends BaseEntity {
-    private String name;
+public class CreditWallet extends BaseEntity {
+    private Long value;
     @OneToOne
-    private Service parent;
-    private String description;
-    private Long basePrice;
+    private UserAccount userAccount;
 }

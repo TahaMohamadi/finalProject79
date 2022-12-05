@@ -1,4 +1,4 @@
 package ir.mohammadi.entity.enums;
 
-public enum Experties {
+public enum Expertise {
 }

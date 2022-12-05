@@ -2,8 +2,8 @@ package ir.mohammadi.entity;
 
 import ir.mohammadi.base.entity.BaseEntity;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
 import lombok.*;
+import org.hibernate.annotations.Type;
 
 @Getter
 @Setter
@@ -11,9 +11,6 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @Entity
-public class ExpertService extends BaseEntity {
-    @OneToOne
-    private Expert expert;
-    @OneToOne Service service;
-    private String isAvailble;
+public class Images extends BaseEntity {
+    private byte[] name;
 }
