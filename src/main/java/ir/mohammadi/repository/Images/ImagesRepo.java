@@ -1,4 +1,7 @@
 package ir.mohammadi.repository.Images;
 
-public interface ImagesRepo {
+import ir.mohammadi.base.repository.BaseRepository;
+import ir.mohammadi.entity.Images;
+
+public interface ImagesRepo extends BaseRepository<Images> {
 }

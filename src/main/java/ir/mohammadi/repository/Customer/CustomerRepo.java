@@ -1,4 +1,7 @@
 package ir.mohammadi.repository.Customer;
 
-public interface CustomerRepo {
+import ir.mohammadi.base.repository.BaseRepository;
+import ir.mohammadi.entity.Customer;
+
+public interface CustomerRepo extends BaseRepository<Customer> {
 }
