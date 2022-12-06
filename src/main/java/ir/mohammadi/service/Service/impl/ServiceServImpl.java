@@ -9,4 +9,34 @@ public class ServiceServImpl extends BaseServiceImpl<Service, ServiceRepo> imple
     public ServiceServImpl(ServiceRepo repository) {
         super(repository);
     }
+
+    @Override
+    public Service AddMainService(String name) {
+        return null;
+    }
+
+    @Override
+    public Service AddSubService(String name, String description, Long basePrice, Service parent) {
+        return null;
+    }
+
+    @Override
+    public Service EditSubService(String description, Long basePrice, Service service) {
+        return null;
+    }
+
+    @Override
+    public Service EditSubService(Long basePrice, Service service) {
+        return null;
+    }
+
+    @Override
+    public Service EditSubService(String description, Service service) {
+        return null;
+    }
+
+    @Override
+    public Boolean CheckService(String name) {
+        return null;
+    }
 }

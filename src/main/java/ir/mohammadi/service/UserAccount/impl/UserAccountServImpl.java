@@ -9,4 +9,28 @@ public class UserAccountServImpl extends BaseServiceImpl<UserAccount, UserAccoun
     public UserAccountServImpl(UserAccountRepo repository) {
         super(repository);
     }
+
+    @Override
+    public UserAccount ChangePassword(String username, String password) {
+        try{
+            return repository.ChangePassword(username,password);
+        } catch (Exception e) {
+            throw null;
+        }
+    }
+
+    @Override
+    public Boolean CheckUsername(String username) {
+        return null;
+    }
+
+    @Override
+    public Boolean PasswordValidation(String password) {
+        return null;
+    }
+
+    @Override
+    public Boolean EmailValidation(String email) {
+        return null;
+    }
 }
