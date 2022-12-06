@@ -15,5 +15,5 @@ public class ExpertService extends BaseEntity {
     @OneToOne
     private Expert expert;
     @OneToOne Service service;
-    private String isAvailble;
+    private Boolean isAvailable;
 }

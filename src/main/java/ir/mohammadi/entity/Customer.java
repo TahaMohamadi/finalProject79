@@ -19,8 +19,6 @@ public class Customer extends BaseEntity {
     private Person person;
     @OneToOne
     private CreditWallet creditWallet;
-    @OneToMany
-    private List<Order> orders;
     @OneToOne
     private UserAccount userAccount;
 }

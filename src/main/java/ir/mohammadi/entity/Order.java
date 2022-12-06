@@ -2,6 +2,7 @@ package ir.mohammadi.entity;
 
 import ir.mohammadi.base.entity.BaseEntity;
 import ir.mohammadi.entity.enums.OrderStatus;
+import ir.mohammadi.entity.enums.Time;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToOne;
@@ -23,8 +24,10 @@ public class Order extends BaseEntity {
     private Service service;
     private Long sugPrice;
     private String description;
+    private Time timeModel;
     private Integer estimateTime;
     private LocalDateTime dateTime;
     @Enumerated
     private OrderStatus orderStatus;
+    private String address;
 }

@@ -6,6 +6,7 @@ import jakarta.persistence.OneToOne;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -21,11 +22,10 @@ public class ApplyService extends BaseEntity {
     @OneToOne
     private Service service;
     private Long price;
-    private Integer duration;
-    private LocalDate fromDate;
-    private LocalDate thruDate;
+//    private Integer duration;
+    private LocalDateTime fromDateTime;
+    private LocalDateTime thruDateTime;
     @OneToOne
     private Opinion opinion;
-
-
+    private String address;
 }
