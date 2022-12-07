@@ -9,4 +9,13 @@ public class ExpertServImpl extends BaseServiceImpl<Expert, ExpertRepo> implemen
     public ExpertServImpl(ExpertRepo repository) {
         super(repository);
     }
+
+    @Override
+    public Expert ChangeStatus(Expert expert, Boolean isAvailable) {
+        try{
+            return repository.ChangeStatus(expert,isAvailable);
+        } catch (Exception e) {
+            throw null;
+        }
+    }
 }

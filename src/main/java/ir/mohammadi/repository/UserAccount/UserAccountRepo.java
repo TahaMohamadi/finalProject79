@@ -5,4 +5,10 @@ import ir.mohammadi.entity.UserAccount;
 
 public interface UserAccountRepo extends BaseRepository<UserAccount> {
     UserAccount ChangePassword(String username, String password);
+
+    Boolean CheckUsername(String username);
+
+    Boolean PasswordValidation(String password);
+
+    Boolean EmailValidation(String email);
 }

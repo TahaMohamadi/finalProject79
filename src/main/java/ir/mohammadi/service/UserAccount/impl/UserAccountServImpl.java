@@ -21,16 +21,28 @@ public class UserAccountServImpl extends BaseServiceImpl<UserAccount, UserAccoun
 
     @Override
     public Boolean CheckUsername(String username) {
-        return null;
+        try{
+            return repository.CheckUsername(username);
+        } catch (Exception e) {
+            throw null;
+        }
     }
 
     @Override
     public Boolean PasswordValidation(String password) {
-        return null;
+        try{
+            return repository.PasswordValidation(password);
+        } catch (Exception e) {
+            throw null;
+        }
     }
 
     @Override
     public Boolean EmailValidation(String email) {
-        return null;
+        try{
+            return repository.EmailValidation(email);
+        } catch (Exception e) {
+            throw null;
+        }
     }
 }
