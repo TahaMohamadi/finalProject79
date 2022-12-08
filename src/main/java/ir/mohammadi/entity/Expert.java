@@ -5,6 +5,7 @@ import ir.mohammadi.entity.enums.ExpertStatus;
 import ir.mohammadi.entity.enums.Expertise;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,8 @@ public class Expert extends BaseEntity {
     private CreditWallet creditWallet;
     @OneToOne
     private Person person;
-    @OneToOne
+    @OneToOne(optional = false)
+    @JoinColumn(nullable = false, unique = true)
     private UserAccount userAccount;
     @Enumerated(value = EnumType.STRING)
     private Expertise expertise;
@@ -30,4 +32,6 @@ public class Expert extends BaseEntity {
     private ExpertStatus expertStatus;
     @OneToOne
     private Images image;
+    @ColumnDefault(value = "0.0")
+    private Double totalScore;
 }

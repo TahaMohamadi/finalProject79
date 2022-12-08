@@ -1,7 +1,7 @@
 package ir.mohammadi.repository.UserAccount.impl;
 
 import ir.mohammadi.base.repository.impl.BaseRepositoryImpl;
-import ir.mohammadi.entity.UserAccount;
+import ir.mohammadi.entity.*;
 import ir.mohammadi.repository.UserAccount.UserAccountRepo;
 import ir.mohammadi.util.Hibernate;
 import jakarta.persistence.EntityManager;
@@ -58,5 +58,21 @@ public class UserAccountRepoImpl extends BaseRepositoryImpl<UserAccount> impleme
         } else {
             return false;
         }
+    }
+
+    @Override
+    public void SignUpExpert(Person person, UserAccount userAccount, Expert expert, CreditWallet creditWallet) {
+        em.persist(person);
+        em.persist(userAccount);
+        em.persist(creditWallet);
+        em.persist(expert);
+    }
+
+    @Override
+    public void SignUpCustomer(Person person, UserAccount userAccount, Customer customer, CreditWallet creditWallet) {
+        em.persist(person);
+        em.persist(userAccount);
+        em.persist(creditWallet);
+        em.persist(customer);
     }
 }
