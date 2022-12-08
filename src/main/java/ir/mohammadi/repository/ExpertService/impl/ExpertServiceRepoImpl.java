@@ -48,4 +48,13 @@ public class ExpertServiceRepoImpl extends BaseRepositoryImpl<ExpertService> imp
                 """;
         return (Hibernate.getEntityManagerFactory().createEntityManager().createQuery(jpql, ExpertService.class).setParameter("service", service).setParameter("expert", expert)).setParameter("isAvailable",isAvailable).getSingleResult();
     }
+
+    @Override
+    public ExpertService FindByExpertAndService(Expert expert, Service service) {
+        String jpql = """
+                SELECT e FROM ExpertService e
+                WHERE e.service = :service and e.expert = :expert
+                """;
+        return  (Hibernate.getEntityManagerFactory().createEntityManager().createQuery(jpql, ExpertService.class).setParameter("service", service)).getSingleResult();
+    }
 }

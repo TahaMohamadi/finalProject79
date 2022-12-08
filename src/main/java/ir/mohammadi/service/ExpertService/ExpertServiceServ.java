@@ -11,4 +11,5 @@ public interface ExpertServiceServ extends BaseService<ExpertService> {
     List<ExpertService> FindByExpert(Expert expert);
     List<ExpertService> FindByService(Service service);
     ExpertService changeStatus(Expert expert, Service service, Boolean isAvailable);
+    ExpertService FindByExpertAndService(Expert expert, Service service);
 }

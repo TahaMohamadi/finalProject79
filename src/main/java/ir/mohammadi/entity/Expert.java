@@ -3,10 +3,13 @@ package ir.mohammadi.entity;
 import ir.mohammadi.base.entity.BaseEntity;
 import ir.mohammadi.entity.enums.ExpertStatus;
 import ir.mohammadi.entity.enums.Expertise;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -21,9 +24,9 @@ public class Expert extends BaseEntity {
     private Person person;
     @OneToOne
     private UserAccount userAccount;
-    @Enumerated
+    @Enumerated(value = EnumType.STRING)
     private Expertise expertise;
-    @Enumerated
+    @Enumerated(value = EnumType.STRING)
     private ExpertStatus expertStatus;
     @OneToOne
     private Images image;

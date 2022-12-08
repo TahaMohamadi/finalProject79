@@ -22,10 +22,10 @@ public class ApplyService extends BaseEntity {
     @OneToOne
     private Service service;
     private Long price;
-//    private Integer duration;
     private LocalDateTime fromDateTime;
     private LocalDateTime thruDateTime;
     @OneToOne
     private Opinion opinion;
-    private String address;
+    @OneToOne
+    private Suggestion suggestion;
 }

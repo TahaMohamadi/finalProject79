@@ -19,4 +19,6 @@ public interface ServiceRepo extends BaseRepository<Service> {
     Service EditSubDescService(String description, Service service);
 
     List<Service> getMainServices();
+
+    Boolean nameCheck(String name);
 }

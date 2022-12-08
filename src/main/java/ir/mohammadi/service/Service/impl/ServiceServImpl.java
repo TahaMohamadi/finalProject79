@@ -61,4 +61,13 @@ public class ServiceServImpl extends BaseServiceImpl<Service, ServiceRepo> imple
             throw null;
         }
     }
+
+    @Override
+    public Boolean nameCheck(String name) {
+        try{
+            return repository.nameCheck(name);
+        } catch (Exception e) {
+            throw null;
+        }
+    }
 }

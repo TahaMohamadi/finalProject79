@@ -14,6 +14,7 @@ import lombok.*;
 public class ExpertService extends BaseEntity {
     @OneToOne
     private Expert expert;
-    @OneToOne Service service;
+    @OneToOne
+    private Service service;
     private Boolean isAvailable;
 }

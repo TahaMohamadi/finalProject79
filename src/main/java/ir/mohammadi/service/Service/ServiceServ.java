@@ -13,4 +13,5 @@ public interface ServiceServ extends BaseService<Service> {
     List<Service> getMainServices();
     List<Service> getSubServices(Service service);
 
+    Boolean nameCheck(String name);
 }

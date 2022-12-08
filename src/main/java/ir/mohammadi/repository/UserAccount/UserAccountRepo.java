@@ -8,7 +8,5 @@ public interface UserAccountRepo extends BaseRepository<UserAccount> {
 
     Boolean CheckUsername(String username);
 
-    Boolean PasswordValidation(String password);
-
     Boolean EmailValidation(String email);
 }

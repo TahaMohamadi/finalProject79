@@ -43,10 +43,7 @@ public class UserAccountRepoImpl extends BaseRepositoryImpl<UserAccount> impleme
         }
     }
 
-    @Override
-    public Boolean PasswordValidation(String password) {
-        return null;
-    }
+
 
     @Override
     public Boolean EmailValidation(String email) {

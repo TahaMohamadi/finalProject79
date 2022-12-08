@@ -12,4 +12,5 @@ public interface UserAccountServ extends BaseService<UserAccount> {
     //handle in front
     Boolean EmailValidation(String email);
 
+
 }

@@ -2,6 +2,7 @@ package ir.mohammadi.service.UserAccount.impl;
 
 import ir.mohammadi.base.service.impl.BaseServiceImpl;
 import ir.mohammadi.entity.UserAccount;
+import ir.mohammadi.exceptions.NotFoundUserException;
 import ir.mohammadi.repository.UserAccount.UserAccountRepo;
 import ir.mohammadi.service.UserAccount.UserAccountServ;
 
@@ -15,7 +16,7 @@ public class UserAccountServImpl extends BaseServiceImpl<UserAccount, UserAccoun
         try{
             return repository.ChangePassword(username,password);
         } catch (Exception e) {
-            throw null;
+            throw new NotFoundUserException("cant find any user with this data");
         }
     }
 
@@ -31,7 +32,7 @@ public class UserAccountServImpl extends BaseServiceImpl<UserAccount, UserAccoun
     @Override
     public Boolean PasswordValidation(String password) {
         try{
-            return repository.PasswordValidation(password);
+            return null;
         } catch (Exception e) {
             throw null;
         }

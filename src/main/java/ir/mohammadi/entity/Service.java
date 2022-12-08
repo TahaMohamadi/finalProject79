@@ -1,10 +1,7 @@
 package ir.mohammadi.entity;
 
 import ir.mohammadi.base.entity.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.*;
 @Builder
 @Getter
@@ -14,6 +11,7 @@ import lombok.*;
 @ToString
 @Entity
 public class Service extends BaseEntity {
+    @Column(unique = true)
     private String name;
     @OneToOne
     private Service parent;

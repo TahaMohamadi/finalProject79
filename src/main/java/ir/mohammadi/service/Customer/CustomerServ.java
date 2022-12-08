@@ -4,4 +4,5 @@ import ir.mohammadi.base.service.BaseService;
 import ir.mohammadi.entity.Customer;
 
 public interface CustomerServ extends BaseService<Customer> {
+
 }

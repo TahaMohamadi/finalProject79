@@ -42,4 +42,12 @@ public class ExpertServiceServImpl extends BaseServiceImpl<ExpertService, Expert
             throw null;
         }
     }
+
+    @Override
+    public ExpertService FindByExpertAndService(Expert expert, Service service) {
+        try{
+            return repository.FindByExpertAndService(expert,service);
+        } catch (Exception e) {
+            throw null;
+        }    }
 }

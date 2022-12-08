@@ -81,4 +81,18 @@ public class ServiceRepoImpl extends BaseRepositoryImpl<Service> implements Serv
                 """;
         return  (Hibernate.getEntityManagerFactory().createEntityManager().createQuery(jpql, Service.class).setParameter("null", null)).getResultList();
     }
+
+    @Override
+    public Boolean nameCheck(String name) {
+        String jpql = """
+                SELECT s FROM Service s
+                WHERE s.name = :name
+                """;
+        List<Service> s =  (Hibernate.getEntityManagerFactory().createEntityManager().createQuery(jpql, Service.class).setParameter("name", name)).getResultList();
+        if (s.isEmpty()){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

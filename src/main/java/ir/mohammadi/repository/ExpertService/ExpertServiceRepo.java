@@ -13,4 +13,6 @@ public interface ExpertServiceRepo extends BaseRepository<ExpertService> {
     List<ExpertService> FindByService(Service service);
 
     ExpertService changeStatus(Expert expert, Service service, Boolean isAvailable);
+
+    ExpertService FindByExpertAndService(Expert expert, Service service);
 }
