@@ -19,7 +19,7 @@ public class ServiceRepoImpl extends BaseRepositoryImpl<Service> implements Serv
     public Class<Service> getEntityClass() {
         return Service.class;
     }
-
+//criteria
     @Override
     public Service EditSubService(String description, Long basePrice, Service service) {
         String jpql = """

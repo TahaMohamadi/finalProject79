@@ -5,10 +5,7 @@ import ir.mohammadi.entity.*;
 import ir.mohammadi.entity.enums.ExpertStatus;
 import ir.mohammadi.entity.enums.Expertise;
 import ir.mohammadi.entity.enums.UserType;
-import ir.mohammadi.exceptions.NotFoundUserException;
-import ir.mohammadi.exceptions.PasswordValidationException;
-import ir.mohammadi.exceptions.ValidationEmailException;
-import ir.mohammadi.exceptions.ValidationUsernameException;
+import ir.mohammadi.exceptions.*;
 import ir.mohammadi.repository.UserAccount.UserAccountRepo;
 import ir.mohammadi.service.UserAccount.UserAccountServ;
 import ir.mohammadi.service.Validation.ValidationImpl;
@@ -35,7 +32,7 @@ public class UserAccountServImpl extends BaseServiceImpl<UserAccount, UserAccoun
         try{
             return repository.CheckUsername(username);
         } catch (Exception e) {
-            throw null;
+            throw new ValidationUsernameException("your username is not valid");
         }
     }
 
@@ -44,7 +41,7 @@ public class UserAccountServImpl extends BaseServiceImpl<UserAccount, UserAccoun
         try{
             return validationServ.validationPassword(password);
         } catch (Exception e) {
-            throw null;
+            throw new PasswordValidationException("your password is not valid");
         }
     }
 
@@ -53,7 +50,7 @@ public class UserAccountServImpl extends BaseServiceImpl<UserAccount, UserAccoun
         try{
             return repository.EmailValidation(email);
         } catch (Exception e) {
-            throw null;
+            throw new ValidationEmailException("your email is not valid");
         }
     }
 
@@ -98,7 +95,7 @@ public class UserAccountServImpl extends BaseServiceImpl<UserAccount, UserAccoun
             expert.setCreditWallet(creditWallet);
             repository.SignUpExpert( person, userAccount, expert,creditWallet);
         } catch (Exception e) {
-            throw null;
+            throw new SignUpException("cant signUp Now");
         }
     }
 
@@ -141,7 +138,7 @@ public class UserAccountServImpl extends BaseServiceImpl<UserAccount, UserAccoun
             customer.setCreditWallet(creditWallet);
             repository.SignUpCustomer( person, userAccount, customer,creditWallet);
         } catch (Exception e) {
-            throw null;
+            throw new SignUpException("cant signUp Now");
         }
 
     }

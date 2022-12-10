@@ -4,6 +4,7 @@ import ir.mohammadi.entity.Expert;
 import ir.mohammadi.entity.ExpertService;
 import ir.mohammadi.entity.Service;
 import ir.mohammadi.entity.enums.ExpertStatus;
+import ir.mohammadi.exceptions.ExpertServiceException;
 import ir.mohammadi.exceptions.NotFoundService;
 import ir.mohammadi.exceptions.ServiceIsExist;
 import ir.mohammadi.repository.Expert.impl.ExpertRepoImpl;
@@ -24,7 +25,7 @@ public class AdminServImpl implements AdminServ{
     private final ServiceServ serviceServ = new ServiceServImpl(new ServiceRepoImpl(Hibernate.getEntityManagerFactory().createEntityManager()));
     private final ExpertServ expertServ = new ExpertServImpl(new ExpertRepoImpl(Hibernate.getEntityManagerFactory().createEntityManager()));
     private final ExpertServiceServ expertServiceServ  = new ExpertServiceServImpl(new ExpertServiceRepoImpl(Hibernate.getEntityManagerFactory().createEntityManager()));
-
+//exception database
     @Override
     public void AddMainService(String name) {
         if(!serviceServ.nameCheck(name)){
@@ -34,9 +35,8 @@ public class AdminServImpl implements AdminServ{
             mainsService.setName(name);
             serviceServ.save(mainsService);
         }
-
     }
-
+//kar ba Id
     @Override
     public void AddSubService(String name, Long basePrice, String description, Service service) {
         if (!serviceServ.nameCheck(service.getName())){
@@ -57,35 +57,57 @@ public class AdminServImpl implements AdminServ{
 
     @Override
     public void AddExpertToSubService(Service service, Expert expert) {
-        ExpertService expertService = new ExpertService();
-        expertService.setExpert(expert);
-        expertService.setService(service);
-        expertService.setIsAvailable(true);
-        expertServiceServ.save(expertService);
+        try {
+            ExpertService expertService = new ExpertService();
+            expertService.setExpert(expert);
+            expertService.setService(service);
+            expertService.setIsAvailable(true);
+            expertServiceServ.save(expertService);
+        } catch (Exception e){
+            throw new ExpertServiceException("cant find Service or expert");
+        }
     }
+
     public void deleteExpertFromSubService(Service service, Expert expert) {
-        ExpertService expertService = expertServiceServ.FindByExpertAndService(expert,service);
+        try {
+            ExpertService expertService = expertServiceServ.FindByExpertAndService(expert,service);
         expertService.setIsAvailable(false);
         expertServiceServ.save(expertService);
+    } catch (Exception e){
+        throw new ExpertServiceException("cant find ExpertService");
+    }
     }
     @Override
     public void ActiveExpert(Expert expert) {
-        Expert expert1 = expertServ.findById(expert.getId()).get();
+        try {
+            Expert expert1 = expertServ.findById(expert.getId()).get();
         expert1.setExpertStatus(ExpertStatus.ACCEPTED);
         expertServ.update(expert1);
+    } catch (Exception e){
+        throw new ExpertServiceException("cant find Expert");
+    }
     }
 //find all new expert
     @Override
     public void ChangeStatusExpert(Expert expert, ExpertStatus expertStatus) {
-        Expert expert1 = expertServ.findById(expert.getId()).get();
+        try {
+//farakhani az oonvar (logic oonvar)
+            Expert expert1 = expertServ.findById(expert.getId()).get();
         expert1.setExpertStatus(ExpertStatus.ACCEPTED);
-        expertServ.update(expert1);
+
+    } catch (Exception e){
+        throw new ExpertServiceException("cant find Expert");
+    }
     }
     @Override
     public void EditSubServicePrice(Long BasePrice, Service service) {
+        try {
         Service subService = serviceServ.findById(service.getId()).get();
         subService.setBasePrice(BasePrice);
         serviceServ.update(subService);
+    } catch (Exception e){
+        throw new ExpertServiceException("cant find service");
+    }
     }
 
     @Override

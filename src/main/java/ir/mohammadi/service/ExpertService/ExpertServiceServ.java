@@ -8,6 +8,7 @@ import ir.mohammadi.entity.Service;
 import java.util.List;
 
 public interface ExpertServiceServ extends BaseService<ExpertService> {
+//    id ya only Id ya Front
     List<ExpertService> FindByExpert(Expert expert);
     List<ExpertService> FindByService(Service service);
     ExpertService changeStatus(Expert expert, Service service, Boolean isAvailable);

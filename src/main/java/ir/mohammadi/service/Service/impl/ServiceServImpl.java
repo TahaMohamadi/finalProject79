@@ -2,6 +2,8 @@ package ir.mohammadi.service.Service.impl;
 
 import ir.mohammadi.base.service.impl.BaseServiceImpl;
 import ir.mohammadi.entity.Service;
+import ir.mohammadi.exceptions.CantFindSubService;
+import ir.mohammadi.exceptions.InvalidServiceCheck;
 import ir.mohammadi.repository.Service.ServiceRepo;
 import ir.mohammadi.service.Service.ServiceServ;
 
@@ -18,7 +20,7 @@ public class ServiceServImpl extends BaseServiceImpl<Service, ServiceRepo> imple
         try{
             return repository.EditSubService(description,basePrice,service);
         } catch (Exception e) {
-            throw null;
+            throw new CantFindSubService("cant find sub service");
         }    }
 
     @Override
@@ -26,7 +28,7 @@ public class ServiceServImpl extends BaseServiceImpl<Service, ServiceRepo> imple
         try{
             return repository.EditSubPriceService(basePrice,service);
         } catch (Exception e) {
-            throw null;
+            throw new CantFindSubService("cant find sub service");
         }    }
 
     @Override
@@ -34,7 +36,7 @@ public class ServiceServImpl extends BaseServiceImpl<Service, ServiceRepo> imple
         try{
             return repository.EditSubDescService(description,service);
         } catch (Exception e) {
-            throw null;
+            throw new CantFindSubService("cant find sub service");
         }    }
 
     @Override
@@ -42,7 +44,7 @@ public class ServiceServImpl extends BaseServiceImpl<Service, ServiceRepo> imple
         try{
             return repository.CheckService(name);
         } catch (Exception e) {
-            throw null;
+            throw new InvalidServiceCheck("invalid check service");
         }    }
 
     @Override
@@ -50,7 +52,7 @@ public class ServiceServImpl extends BaseServiceImpl<Service, ServiceRepo> imple
         try{
             return repository.getMainServices();
         } catch (Exception e) {
-            throw null;
+            throw new InvalidServiceCheck("cant load main service");
         }    }
 
     @Override
@@ -58,7 +60,7 @@ public class ServiceServImpl extends BaseServiceImpl<Service, ServiceRepo> imple
         try{
             return repository.getSubServices(service);
         } catch (Exception e) {
-            throw null;
+            throw new InvalidServiceCheck("cant load sub service");
         }
     }
 
@@ -67,7 +69,7 @@ public class ServiceServImpl extends BaseServiceImpl<Service, ServiceRepo> imple
         try{
             return repository.nameCheck(name);
         } catch (Exception e) {
-            throw null;
+            throw new InvalidServiceCheck("cant check name service");
         }
     }
 }

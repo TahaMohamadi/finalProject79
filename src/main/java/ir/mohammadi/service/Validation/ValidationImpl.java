@@ -12,8 +12,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
-public class ValidationImpl implements ValidationServ{
+public class
+ValidationImpl implements ValidationServ{
     UserAccountServ userAccountServ = new UserAccountServImpl(new UserAccountRepoImpl(Hibernate.getEntityManagerFactory().createEntityManager()));
+//    validate password
     @Override
     public boolean validationPassword(String password) {
         return Pattern

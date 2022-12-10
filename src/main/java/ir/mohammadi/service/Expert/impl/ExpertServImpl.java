@@ -2,6 +2,7 @@ package ir.mohammadi.service.Expert.impl;
 
 import ir.mohammadi.base.service.impl.BaseServiceImpl;
 import ir.mohammadi.entity.Expert;
+import ir.mohammadi.exceptions.ChangeStatusException;
 import ir.mohammadi.repository.Expert.ExpertRepo;
 import ir.mohammadi.service.Expert.ExpertServ;
 
@@ -15,7 +16,7 @@ public class ExpertServImpl extends BaseServiceImpl<Expert, ExpertRepo> implemen
         try{
             return repository.ChangeStatus(expert,isAvailable);
         } catch (Exception e) {
-            throw null;
+            throw new ChangeStatusException("cant find expert");
         }
     }
 }

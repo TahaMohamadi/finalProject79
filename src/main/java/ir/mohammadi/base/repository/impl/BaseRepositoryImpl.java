@@ -44,7 +44,7 @@ public abstract class BaseRepositoryImpl<E extends BaseEntity> implements BaseRe
         return em.createQuery("from " + getEntityClass().getSimpleName(), getEntityClass())
                 .getResultList();
     }
-
+//is
     @Override
     public boolean isExistsById(Long id) {
         TypedQuery<Long> query = em.createQuery("select count (id) from " + getEntityClass().getSimpleName() + " where id= :pk ", Long.class);

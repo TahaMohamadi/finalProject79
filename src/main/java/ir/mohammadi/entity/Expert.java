@@ -20,15 +20,17 @@ import java.util.Set;
 @Entity
 public class Expert extends BaseEntity {
     @OneToOne
+    @JoinColumn(unique = true)
     private CreditWallet creditWallet;
-    @OneToOne
+    @OneToOne(optional = false)
+    @JoinColumn(nullable = false, unique = true)
     private Person person;
     @OneToOne(optional = false)
     @JoinColumn(nullable = false, unique = true)
     private UserAccount userAccount;
-    @Enumerated(value = EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private Expertise expertise;
-    @Enumerated(value = EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private ExpertStatus expertStatus;
     @OneToOne
     private Images image;

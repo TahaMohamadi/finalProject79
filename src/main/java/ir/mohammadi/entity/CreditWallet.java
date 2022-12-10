@@ -2,6 +2,7 @@ package ir.mohammadi.entity;
 
 import ir.mohammadi.base.entity.BaseEntity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import lombok.*;
 
@@ -13,6 +14,7 @@ import lombok.*;
 @Entity
 public class CreditWallet extends BaseEntity {
     private Long value;
-    @OneToOne
+    @OneToOne(optional = false)
+    @JoinColumn(nullable = false, unique = true)
     private UserAccount userAccount;
 }
